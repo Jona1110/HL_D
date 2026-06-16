@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directorio Elite - Hombre de Ley x Digitality</title>
+    
+    <!-- Meta Tags Open Graph -->
+    <meta property="og:title" content="Comercio Local de El Salto - Hombre de Ley">
+    <meta property="og:description" content="Descubre y apoya a los mejores negocios locales recomendados en nuestra ciudad.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <span class="badge"><i class="fa-solid fa-handshake"></i> Alianza Local</span>
+            <h1>Lo Mejor de El Salto</h1>
+            <p>Descubre los negocios recomendados por <strong>Hombre de Ley</strong> y optimizados por <strong>Digitality</strong>.</p>
+            
+            <!-- Buscador Avanzado -->
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="search-input" placeholder="¿Qué se te antoja o necesitas hoy?">
+                    <button id="btn-location" class="btn-location" title="Buscar cerca de mí">
+                        <i class="fa-solid fa-location-crosshairs"></i>
+                    </button>
+                </div>
+                <div class="filter-box">
+                    <select id="category-filter">
+                        <option value="todos">🔥 Todas las categorías</option>
+                        <option value="comida">🌮 Comida</option>
+                        <option value="servicios">💈 Servicios</option>
+                        <option value="compras">🛍️ Compras</option>
+                        <option value="otros">✨ Otros</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal -->
+    <main class="main-container">
+        
+        <!-- SECCIÓN: Oferta Flash del Día -->
+        <section id="flash-deal-section" class="flash-deal-container" style="display: none;">
+            <div class="flash-header">
+                <h2><i class="fa-solid fa-bolt" style="color: #fbbf24;"></i> Oferta Flash del Día</h2>
+                <div class="countdown" id="countdown-timer">00:00:00</div>
+            </div>
+            <div id="flash-deal-content">
+                <!-- Se inyecta dinámicamente -->
+            </div>
+        </section>
+
+        <!-- SECCIÓN: Directorio Principal -->
+        <div class="section-header">
+            <h2 class="section-title">Negocios Fundadores <span class="live-pulse"></span></h2>
+            <span id="location-status" class="location-status"></span>
+        </div>
+        
+        <div id="loading" class="loading-status">
+            <div class="spinner"></div>
+            <p>Conectando con los mejores locales...</p>
+        </div>
+
+        <div id="directory-grid" class="directory-grid">
+            <!-- Tarjetas inyectadas por JS -->
+        </div>
+    </main>
+
+    <!-- Modal de Reseñas -->
+    <div id="review-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeReviewModal()"><i class="fa-solid fa-xmark"></i></button>
+            <h3 id="modal-business-name">Calificar Negocio</h3>
+            <p class="modal-desc">Tu opinión ayuda a otros en El Salto a tomar mejores decisiones.</p>
+            
+            <div class="star-rating-input">
+                <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 estrellas"><i class="fa-solid fa-star"></i></label>
+                <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 estrellas"><i class="fa-solid fa-star"></i></label>
+                <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 estrellas"><i class="fa-solid fa-star"></i></label>
+                <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 estrellas"><i class="fa-solid fa-star"></i></label>
+                <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 estrella"><i class="fa-solid fa-star"></i></label>
+            </div>
+
+            <textarea id="review-comment" placeholder="¿Qué te pareció el servicio o producto? (Opcional)" rows="3"></textarea>
+            
+            <button id="submit-review-btn" class="btn btn-primary-full">Enviar Calificación</button>
+        </div>
+    </div>
+
+    <div id="view-reviews-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+        <button class="close-modal" onclick="closeReviewsModal()"><i class="fa-solid fa-xmark"></i></button>
+        <h3>Opiniones de la comunidad</h3>
+        <div id="reviews-list" class="reviews-list-container">
+            </div>
+    </div>
+</div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 <strong>Digitality</strong> & <strong>Hombre de Ley</strong></p>
+            <p class="footer-sub">Impulsando la economía local de El Salto, Jalisco.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
