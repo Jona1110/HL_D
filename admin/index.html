@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control - Digitality x Hombre de Ley</title>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="admin-layout">
+        <!-- Barra lateral de navegación / Status -->
+        <aside class="sidebar">
+            <div class="brand">
+                <i class="fa-solid fa-sliders"></i>
+                <h2>DIGITALITY <span>Admin</span></h2>
+            </div>
+            <div class="partner-card">
+                <p class="partner-title">Colaboración Activa</p>
+                <p class="partner-name"><i class="fa-solid fa-user-shield"></i> Hombre de Ley</p>
+                <span class="status-indicator-online">Conexión Live</span>
+            </div>
+            <div class="metrics">
+                <div class="metric-box">
+                    <span class="metric-num" id="total-count">0</span>
+                    <span class="metric-label">Socios Fundadores</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Contenedor Principal -->
+        <main class="content-area">
+            <header class="main-header">
+                <h1>Gestión de Comercios</h1>
+                <p>Añade y monitorea los negocios locales registrados en El Salto.</p>
+            </header>
+
+            <div class="grid-container">
+                <!-- Bloque del Formulario -->
+                <section class="card form-section">
+                    <h3><i class="fa-solid fa-plus"></i> Registrar Nuevo Negocio</h3>
+                    <form id="business-form">
+                        <div class="form-group">
+                            <label for="nombre">Nombre del Comercio *</label>
+                            <input type="text" id="nombre" required placeholder="Ej: Taquería Los Primos">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="categoria">Categoría *</label>
+                                <select id="categoria" required>
+                                    <option value="" disabled selected>Selecciona una...</option>
+                                    <option value="comida">Comida / Taquerías</option>
+                                    <option value="servicios">Servicios / Barberías</option>
+                                    <option value="compras">Compras / Carnicerías</option>
+                                    <option value="otros">Otros</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="whatsapp">WhatsApp (Con Lada) *</label>
+                                <input type="tel" id="whatsapp" required placeholder="Ej: 5233XXXXXXXX">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descripcion">Descripción Comercial *</label>
+                            <textarea id="descripcion" rows="3" required placeholder="Describe brevemente las especialidades, promociones o servicios del negocio..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ubicacion">Enlace de Google Maps (Opcional)</label>
+                            <input type="url" id="ubicacion" placeholder="https://maps.google.com/...">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="imagen">URL de la Imagen / Logo (Opcional)</label>
+                            <input type="url" id="imagen" placeholder="https://images.unsplash.com/... o enlace de drive publico">
+                        </div>
+
+                        <button type="submit" class="btn-submit" id="submit-btn">
+                            <i class="fa-solid fa-cloud-arrow-up"></i> Publicar en Catálogo
+                        </button>
+                    </form>
+                </section>
+
+                <!-- Bloque del Listado Actualizado -->
+                <section class="card list-section">
+                    <h3><i class="fa-solid fa-list-check"></i> Comercios Activos</h3>
+                    <div id="loading" class="loading-spinner">
+                        <i class="fa-solid fa-spinner fa-spin"></i> Sincronizando datos...
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Comercio</th>
+                                    <th>Categoría</th>
+                                    <th>Contacto</th>
+                                    <th>Estatus</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body">
+                                <!-- Datos inyectados dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Notificaciones flotantes estilo Toast -->
+    <div id="toast" class="toast"></div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
